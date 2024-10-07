@@ -8,6 +8,9 @@ const servers = {
     // Add remaining servers from the provided list...
 };
 
+// Flag to track if the success notification has been shown
+let copyNotificationShown = false;
+
 // Helper function to normalize search query (lowercase, remove spaces)
 function normalizeSearchQuery(query) {
     return query.toLowerCase().replace(/\s+/g, '');
@@ -73,6 +76,27 @@ function filterServers() {
         // Show or hide the cluster based on whether a match was found
         cluster.style.display = found ? "block" : "none";
     });
+}
+
+// Function to copy IP to clipboard and show success notification once per page load
+function copyToClipboard(ip) {
+    navigator.clipboard.writeText(ip).then(() => {
+        // Show the notification only if it hasn't been shown yet
+        if (!copyNotificationShown) {
+            showNotification(`IP ${ip} copied to clipboard!`);
+            copyNotificationShown = true; // Mark that the notification has been shown
+        }
+    });
+}
+
+// Function to display the notification
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.classList.add("show");
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 2000);
 }
 
 // Initial rendering of all servers
