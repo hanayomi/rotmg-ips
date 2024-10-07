@@ -16,11 +16,11 @@ body {
 
 .pixel-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3em;
+  font-size: 3.5em; /* Increased size */
   color: transparent;
   background-clip: text;
   background-size: 300%;
-  animation: gradient 8s ease infinite;
+  animation: gradient 6s ease infinite; /* Faster transition */
   background-image: linear-gradient(90deg, 
     #ffccff, 
     #ff99cc, 

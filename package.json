@@ -1,18 +1,12 @@
 {
-  "name": "realm-of-the-mad-god-ip-tool",
+  "name": "rotmg-ip-tool",
   "version": "1.0.0",
-  "description": "A tool to list IPs for Realm of the Mad God servers.",
-  "main": "server.js",
+  "description": "Comprehensive Realm of the Mad God Server IP Tool",
   "scripts": {
-    "start": "node server.js"
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build"
   },
-  "engines": {
-    "node": "14.x"
-  },
-  "dependencies": {
-    "express": "^2.5.11"
-  },
-  "devDependencies": {
-    "serve": "^14.2.3"
-  }
+  "dependencies": {},
+  "author": "Your Name",
+  "license": "ISC"
 }

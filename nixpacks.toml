@@ -3,4 +3,4 @@
 command = "npm install"
 
 [run]
-command = "npm run start"
+command = "npm start"

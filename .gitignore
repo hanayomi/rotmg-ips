@@ -1,7 +1,13 @@
-# Node.js dependencies
+# Node modules
 node_modules/
+
+# Log files
 npm-debug.log
 yarn-error.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
 
 # Docker
 docker-compose.yaml
@@ -10,14 +16,4 @@ Dockerfile
 # Build files
 dist/
 out/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Logs
-logs/
-*.log
-
-# Ignore configuration files
 .env

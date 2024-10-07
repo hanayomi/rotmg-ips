@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const otherService = require('./other-service');
 
-// In-memory data structure to hold servers and their IPs
+// In-memory data structure for servers
 let servers = {
     "USEast": {
         nexus: "54.234.226.24",
@@ -13,63 +14,26 @@ let servers = {
             "Old Realm #1": "54.144.164.168"
         }
     },
-    "USWest": {
-        nexus: "54.86.47.176",
-        betaRealms: {
-            "[BETA] #1": "52.55.11.175",
-            "[BETA] #2": "54.165.81.87"
-        },
-        oldRealm: {
-            "Old Realm #1": "54.165.81.87"
-        }
-    }
+    // Add other servers...
 };
 
-// Route to get all servers and IPs
+// GET: Retrieve all servers and their IPs
 router.get('/servers', (req, res) => {
     res.status(200).json(servers);
 });
 
-// Route to update/add IPs for a server
+// POST: Update or add an IP for a server
 router.post('/update-ip', (req, res) => {
     const { serverName, realmType, realmName, ip } = req.body;
-
-    if (!servers[serverName]) {
-        servers[serverName] = { nexus: "", betaRealms: {}, oldRealm: {} };
-    }
-
-    if (realmType === "nexus") {
-        servers[serverName].nexus = ip;
-    } else if (realmType === "[BETA]") {
-        servers[serverName].betaRealms[realmName] = ip;
-    } else if (realmType === "old") {
-        servers[serverName].oldRealm[realmName] = ip;
-    }
-
+    servers = otherService.updateServerIP(servers, serverName, realmType, realmName, ip);
     res.status(200).send(`Updated ${serverName} ${realmType} ${realmName} with IP: ${ip}`);
 });
 
-// Route to update realm names
+// POST: Update Realm Name
 router.post('/update-realm-name', (req, res) => {
-    const { serverName, realmType, newName, ip } = req.body;
-
-    if (!servers[serverName]) {
-        return res.status(404).send("Server not found");
-    }
-
-    if (realmType === "[BETA]") {
-        const existingBetaRealms = Object.keys(servers[serverName].betaRealms);
-        if (existingBetaRealms.length < 2) {
-            servers[serverName].betaRealms[newName] = ip;
-        } else {
-            delete servers[serverName].betaRealms[existingBetaRealms[0]];
-            servers[serverName].betaRealms[newName] = ip;
-        }
-    } else if (realmType === "old") {
-        servers[serverName].oldRealm = { [newName]: ip };
-    }
-
-    res.status(200).send(`Updated ${realmType} realm for ${serverName} to: ${newName} with IP: ${ip}`);
+    const { serverName, realmType, oldName, newName } = req.body;
+    servers = otherService.updateRealmName(servers, serverName, realmType, oldName, newName);
+    res.status(200).send(`Updated ${serverName} ${realmType} realm name from ${oldName} to ${newName}`);
 });
 
 module.exports = router;

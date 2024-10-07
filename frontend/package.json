@@ -1,13 +1,11 @@
 {
   "name": "rotmg-frontend",
   "version": "1.0.0",
-  "description": "Frontend for Realm of the Mad God IP tool",
-  "main": "index.html",
+  "description": "Frontend for Realm of the Mad God IP Tool",
   "scripts": {
     "serve": "live-server --port=8080",
     "build": "npm run build"
   },
-  "dependencies": {},
   "devDependencies": {
     "live-server": "^1.2.1"
   },

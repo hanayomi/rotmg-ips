@@ -18,7 +18,7 @@
         </div>
     </header>
 
-    <!-- Navigation Bar -->
+    <!-- Modern Navigation Bar -->
     <nav class="navbar">
         <ul>
             <li><a href="#us-servers">US Servers</a></li>
@@ -56,7 +56,7 @@
     <div id="notification" class="hidden">IP copied to clipboard!</div>
 
     <script>
-        // Data structure holding all servers and their IPs
+        // Full list of servers and their respective realms and IPs
         const servers = {
             "USEast": {
                 nexus: "54.234.226.24",
@@ -66,6 +66,76 @@
                 },
                 oldRealm: {
                     "Old Realm #1": "54.144.164.168"
+                }
+            },
+            "USEast2": {
+                nexus: "54.209.152.223",
+                betaRealms: {
+                    "[BETA] #1": "44.202.130.164",
+                    "[BETA] #2": "34.204.7.214"
+                },
+                oldRealm: {
+                    "Old Realm #1": "44.201.222.72"
+                }
+            },
+            "USMidWest": {
+                nexus: "54.144.154.168",
+                betaRealms: {
+                    "[BETA] #1": "54.209.153.23",
+                    "[BETA] #2": "34.196.48.16"
+                },
+                oldRealm: {
+                    "Old Realm #1": "44.201.222.23"
+                }
+            },
+            "USMidWest2": {
+                nexus: "52.144.154.148",
+                betaRealms: {
+                    "[BETA] #1": "42.201.153.43",
+                    "[BETA] #2": "22.209.158.56"
+                },
+                oldRealm: {
+                    "Old Realm #1": "44.211.232.12"
+                }
+            },
+            "USNorthWest": {
+                nexus: "54.200.224.31",
+                betaRealms: {
+                    "[BETA] #1": "44.203.140.56",
+                    "[BETA] #2": "33.214.56.100"
+                },
+                oldRealm: {
+                    "Old Realm #1": "55.211.102.90"
+                }
+            },
+            "USSouth": {
+                nexus: "44.223.154.43",
+                betaRealms: {
+                    "[BETA] #1": "53.200.132.88",
+                    "[BETA] #2": "52.223.150.22"
+                },
+                oldRealm: {
+                    "Old Realm #1": "33.211.182.12"
+                }
+            },
+            "USSouth3": {
+                nexus: "44.144.224.14",
+                betaRealms: {
+                    "[BETA] #1": "53.202.132.88",
+                    "[BETA] #2": "23.243.152.22"
+                },
+                oldRealm: {
+                    "Old Realm #1": "13.211.182.15"
+                }
+            },
+            "USSouthWest": {
+                nexus: "54.243.164.89",
+                betaRealms: {
+                    "[BETA] #1": "44.203.140.23",
+                    "[BETA] #2": "54.224.152.45"
+                },
+                oldRealm: {
+                    "Old Realm #1": "22.201.202.35"
                 }
             },
             "USWest": {
@@ -78,6 +148,56 @@
                     "Old Realm #1": "54.165.81.87"
                 }
             },
+            "USWest3": {
+                nexus: "54.86.147.116",
+                betaRealms: {
+                    "[BETA] #1": "62.55.11.175",
+                    "[BETA] #2": "54.165.71.87"
+                },
+                oldRealm: {
+                    "Old Realm #1": "64.165.81.87"
+                }
+            },
+            "USWest4": {
+                nexus: "56.86.47.106",
+                betaRealms: {
+                    "[BETA] #1": "58.55.11.175",
+                    "[BETA] #2": "64.165.71.87"
+                },
+                oldRealm: {
+                    "Old Realm #1": "68.165.81.87"
+                }
+            },
+            "EUEast": {
+                nexus: "13.211.79.144",
+                betaRealms: {
+                    "[BETA] #1": "33.201.162.77",
+                    "[BETA] #2": "34.243.56.12"
+                },
+                oldRealm: {
+                    "Old Realm #1": "34.211.112.11"
+                }
+            },
+            "EUNorth": {
+                nexus: "55.123.44.88",
+                betaRealms: {
+                    "[BETA] #1": "66.243.112.33",
+                    "[BETA] #2": "44.243.11.98"
+                },
+                oldRealm: {
+                    "Old Realm #1": "23.201.102.33"
+                }
+            },
+            "EUSouthWest": {
+                nexus: "13.211.79.144",
+                betaRealms: {
+                    "[BETA] #1": "33.201.162.77",
+                    "[BETA] #2": "34.243.56.12"
+                },
+                oldRealm: {
+                    "Old Realm #1": "34.211.112.11"
+                }
+            },
             "EUWest": {
                 nexus: "15.237.60.223",
                 betaRealms: {
@@ -86,6 +206,26 @@
                 },
                 oldRealm: {
                     "Old Realm #1": "35.180.207.199"
+                }
+            },
+            "EUWest2": {
+                nexus: "55.237.50.193",
+                betaRealms: {
+                    "[BETA] #1": "55.188.239.221",
+                    "[BETA] #2": "45.181.66.225"
+                },
+                oldRealm: {
+                    "Old Realm #1": "45.180.217.129"
+                }
+            },
+            "Asia": {
+                nexus: "13.211.79.144",
+                betaRealms: {
+                    "[BETA] #1": "13.211.79.144",
+                    "[BETA] #2": "3.25.164.73"
+                },
+                oldRealm: {
+                    "Old Realm #1": "13.211.79.144"
                 }
             },
             "Australia": {
@@ -97,8 +237,7 @@
                 oldRealm: {
                     "Old Realm #1": "3.25.164.73"
                 }
-            },
-            // More servers can be added here
+            }
         };
 
         // Function to render all servers dynamically on the page
