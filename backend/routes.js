@@ -23,24 +23,21 @@ let servers = {
             "Old Realm #1": "54.165.81.87"
         }
     }
-    // Add more servers and IPs as needed...
 };
 
-// Route to get the list of all servers and IPs
+// Route to get all servers and IPs
 router.get('/servers', (req, res) => {
     res.status(200).json(servers);
 });
 
-// Route to update/add a new IP for a server
+// Route to update/add IPs for a server
 router.post('/update-ip', (req, res) => {
     const { serverName, realmType, realmName, ip } = req.body;
 
-    // Ensure the server exists, if not, create it
     if (!servers[serverName]) {
         servers[serverName] = { nexus: "", betaRealms: {}, oldRealm: {} };
     }
 
-    // Update or add IP based on realmType
     if (realmType === "nexus") {
         servers[serverName].nexus = ip;
     } else if (realmType === "[BETA]") {
@@ -52,22 +49,19 @@ router.post('/update-ip', (req, res) => {
     res.status(200).send(`Updated ${serverName} ${realmType} ${realmName} with IP: ${ip}`);
 });
 
-// Route to update the names for [BETA] and old realms
+// Route to update realm names
 router.post('/update-realm-name', (req, res) => {
     const { serverName, realmType, newName, ip } = req.body;
 
-    // Ensure the server exists, if not, respond with error
     if (!servers[serverName]) {
         return res.status(404).send("Server not found");
     }
 
-    // Update the name and associated IP based on realmType
     if (realmType === "[BETA]") {
         const existingBetaRealms = Object.keys(servers[serverName].betaRealms);
         if (existingBetaRealms.length < 2) {
             servers[serverName].betaRealms[newName] = ip;
         } else {
-            // Automatically replace the oldest [BETA] realm if two exist
             delete servers[serverName].betaRealms[existingBetaRealms[0]];
             servers[serverName].betaRealms[newName] = ip;
         }

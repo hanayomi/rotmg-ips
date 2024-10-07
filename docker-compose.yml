@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/app
+      - ./backend:/app
     ports:
       - "3000:3000"
     environment:
