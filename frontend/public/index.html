@@ -4,194 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>evan is a jew</title>
+    <title>Realm of the Mad God Server IP Tool</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Realm of the Mad God Server IP Tool</h1>
+    <header class="pixel-header">
+        <h1 class="pixel-title">069 Homestock</h1>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for servers or realms (e.g., USW, USWest3 Harpy)" oninput="filterServers()" />
+        </div>
     </header>
 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#us-servers">US Servers</a></li>
+            <li><a href="#eu-servers">EU Servers</a></li>
+            <li><a href="#global-servers">Global Servers</a></li>
+        </ul>
+    </nav>
+
     <main class="container">
-        <section class="intro">
-            <h2>Welcome to the Server IP Tool</h2>
-            <p>Explore available servers across US, EU, and Global categories. Hover over a realm to reveal its IP, or click to copy it to your clipboard.</p>
-        </section>
-
-        <!-- Server List Section -->
-        <section class="server-list">
-            <h2>Available Servers</h2>
-
-            <!-- US Servers -->
+        <!-- US Servers Section -->
+        <section id="us-servers" class="server-list">
+            <h2>US Servers</h2>
             <div class="server-group">
-                <h3>US Servers</h3>
 
                 <div class="server-cluster">
                     <h4>USEast</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="54.234.226.24">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="54.209.152.223">[BETA] Hearth</button></li>
-                        <li><button class="copy-btn" data-ip="54.196.48.20">[BETA] Frontier</button></li>
-                        <li><button class="copy-btn" data-ip="3.87.200.184">[BETA] Mesa</button></li>
-                        <li><button class="copy-btn" data-ip="54.144.164.168">Slime</button></li>
-                        <li><button class="copy-btn" data-ip="3.87.200.184">[BETA] Horizon</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="54.234.226.24" onclick="copyToClipboard('54.234.226.24')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="54.209.152.223" onclick="copyToClipboard('54.209.152.223')">[BETA] #1</button>
+                            <span class="realm-name">Hearth</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="54.196.48.20" onclick="copyToClipboard('54.196.48.20')">[BETA] #2</button>
+                            <span class="realm-name">Frontier</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="54.144.164.168" onclick="copyToClipboard('54.144.164.168')">Old Realm #1</button>
+                            <span class="realm-name">Slime</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="server-cluster">
                     <h4>USEast2</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="44.202.130.164">[BETA] Squall</button></li>
-                        <li><button class="copy-btn" data-ip="44.201.222.72">Bat</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="54.209.152.223" onclick="copyToClipboard('54.209.152.223')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="44.202.130.164" onclick="copyToClipboard('44.202.130.164')">[BETA] #1</button>
+                            <span class="realm-name">Squall</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="34.204.7.214" onclick="copyToClipboard('34.204.7.214')">[BETA] #2</button>
+                            <span class="realm-name">Mesa</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="44.201.222.72" onclick="copyToClipboard('44.201.222.72')">Old Realm #1</button>
+                            <span class="realm-name">Bat</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="server-cluster">
                     <h4>USWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="54.86.47.176">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="52.55.11.175">[BETA] Frontier</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USWest3</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="13.56.194.53">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="13.56.194.53">[BETA] Meridian</button></li>
-                        <li><button class="copy-btn" data-ip="3.82.104.152">[BETA] Mesa</button></li>
-                        <li><button class="copy-btn" data-ip="3.92.207.94">Drake</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USWest4</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="3.92.207.94">[BETA] Reverie</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USMidWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="18.223.98.102">[BETA] Squall</button></li>
-                        <li><button class="copy-btn" data-ip="18.223.98.102">[BETA] Meridian</button></li>
-                        <li><button class="copy-btn" data-ip="3.132.215.145">Spider</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USMidWest2</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="3.140.254.133">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="3.131.99.10">[BETA] Horizon</button></li>
-                        <li><button class="copy-btn" data-ip="3.129.66.248">[BETA] Lumen</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USSouth</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="54.152.253.238">Bat</button></li>
-                        <li><button class="copy-btn" data-ip="44.203.254.167">[BETA] Horizon</button></li>
-                        <li><button class="copy-btn" data-ip="44.203.254.167">[BETA] Zephyr</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USSouth3</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="54.235.225.178">[BETA] Meridian</button></li>
-                        <li><button class="copy-btn" data-ip="3.83.90.148">[BETA] Lumen</button></li>
-                        <li><button class="copy-btn" data-ip="52.90.113.152">Kraken</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USNorthWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="3.89.23.211">[BETA] Frontier</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>USSouthWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="18.144.31.150">[BETA] Lumen</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="54.86.47.176" onclick="copyToClipboard('54.86.47.176')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="52.55.11.175" onclick="copyToClipboard('52.55.11.175')">[BETA] #1</button>
+                            <span class="realm-name">Frontier</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="54.165.81.87" onclick="copyToClipboard('54.165.81.87')">[BETA] #2</button>
+                            <span class="realm-name">Deathmage</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="54.165.81.87" onclick="copyToClipboard('54.165.81.87')">Old Realm #1</button>
+                            <span class="realm-name">Blaze</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- EU Servers -->
+        <!-- EU Servers Section -->
+        <section id="eu-servers" class="server-list">
+            <h2>EU Servers</h2>
             <div class="server-group">
-                <h3>EU Servers</h3>
-
                 <div class="server-cluster">
                     <h4>EUWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="15.237.60.223">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="15.188.239.201">[BETA] Reverie</button></li>
-                        <li><button class="copy-btn" data-ip="35.181.56.245">[BETA] Zephyr</button></li>
-                        <li><button class="copy-btn" data-ip="15.237.108.108">[BETA] Cronus</button></li>
-                        <li><button class="copy-btn" data-ip="35.180.207.199">[BETA] Meridian</button></li>
-                        <li><button class="copy-btn" data-ip="15.188.79.226">[BETA] Frontier</button></li>
-                        <li><button class="copy-btn" data-ip="13.37.241.36">Hobbit</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>EUWest2</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="18.201.149.221">[BETA] Lumen</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="15.237.60.223" onclick="copyToClipboard('15.237.60.223')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="15.188.239.201" onclick="copyToClipboard('15.188.239.201')">[BETA] #1</button>
+                            <span class="realm-name">Reverie</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="35.181.56.245" onclick="copyToClipboard('35.181.56.245')">[BETA] #2</button>
+                            <span class="realm-name">Zephyr</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="35.180.207.199" onclick="copyToClipboard('35.180.207.199')">Old Realm #1</button>
+                            <span class="realm-name">Harpy</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="server-cluster">
                     <h4>EUEast</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="3.75.237.52">[BETA] Squall</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>EUNorth</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="18.159.133.120">Nexus</button></li>
-                        <li><button class="copy-btn" data-ip="18.192.176.238">[BETA] Hearth</button></li>
-                        <li><button class="copy-btn" data-ip="18.192.176.238">[BETA] Zephyr</button></li>
-                        <li><button class="copy-btn" data-ip="3.70.24.169">Goblin</button></li>
-                    </ul>
-                </div>
-
-                <div class="server-cluster">
-                    <h4>EUSouthWest</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="13.38.65.203">[BETA] Squall</button></li>
-                        <li><button class="copy-btn" data-ip="15.237.125.29">Lich</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="18.184.218.174" onclick="copyToClipboard('18.184.218.174')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="3.75.237.52" onclick="copyToClipboard('3.75.237.52')">[BETA] #1</button>
+                            <span class="realm-name">Squall</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="3.78.220.124" onclick="copyToClipboard('3.78.220.124')">[BETA] #2</button>
+                            <span class="realm-name">Hearth</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="18.192.197.40" onclick="copyToClipboard('18.192.197.40')">Old Realm #1</button>
+                            <span class="realm-name">Cyclops</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Global Servers -->
+        <!-- Global Servers Section -->
+        <section id="global-servers" class="server-list">
+            <h2>Global Servers</h2>
             <div class="server-group">
-                <h3>Global Servers</h3>
-
                 <div class="server-cluster">
                     <h4>Australia</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="13.211.79.144">[BETA] Cronus</button></li>
-                        <li><button class="copy-btn" data-ip="3.25.164.73">Beholder</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="54.79.72.84" onclick="copyToClipboard('54.79.72.84')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="13.211.79.144" onclick="copyToClipboard('13.211.79.144')">[BETA] #1</button>
+                            <span class="realm-name">Cronus</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="3.25.164.73" onclick="copyToClipboard('3.25.164.73')">[BETA] #2</button>
+                            <span class="realm-name">Squall</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="3.25.164.73" onclick="copyToClipboard('3.25.164.73')">Old Realm #1</button>
+                            <span class="realm-name">Beholder</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="server-cluster">
                     <h4>Asia</h4>
-                    <ul>
-                        <li><button class="copy-btn" data-ip="54.251.13.215">[BETA] Hearth</button></li>
-                        <li><button class="copy-btn" data-ip="18.136.119.114">Gargoyle</button></li>
-                    </ul>
+                    <button class="copy-btn nexus-btn" data-ip="3.0.147.127" onclick="copyToClipboard('3.0.147.127')">Nexus</button>
+                    <div class="realms">
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="54.251.13.215" onclick="copyToClipboard('54.251.13.215')">[BETA] #1</button>
+                            <span class="realm-name">Hearth</span>
+                        </div>
+                        <div class="realm beta-realm">
+                            <button class="copy-btn beta-btn" data-ip="54.251.13.215" onclick="copyToClipboard('54.251.13.215')">[BETA] #2</button>
+                            <span class="realm-name">Mesa</span>
+                        </div>
+                        <div class="realm regular-realm">
+                            <button class="copy-btn old-realm-btn" data-ip="18.136.119.114" onclick="copyToClipboard('18.136.119.114')">Old Realm #1</button>
+                            <span class="realm-name">Gargoyle</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

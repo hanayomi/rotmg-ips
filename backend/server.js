@@ -1,24 +1,29 @@
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const routes = require('./routes');
+const otherService = require('./other-service');
+
 const app = express();
+const port = 3000;
 
-// Middleware to parse JSON and URL-encoded data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use('/api', routes);
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, './public')));
-
-// API routes
-app.use('/api', require('./routes'));
-
-// Fallback route to serve index.html for any non-API routes (SPA support)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public', 'index.html'));
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
 
-// Listen on the dynamic Railway PORT or default to 3000 locally
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Command Line Interface (CLI) to add/update servers and realms
+const args = process.argv.slice(2);
+if (args[0] === 'add-ip') {
+  const [command, serverName, realmType, ip] = args;
+  otherService.updateServerIP(serverName, realmType, ip);
+}
+if (args[0] === 'update-realm') {
+  const [command, serverName, realmType, realmName] = args;
+  otherService.updateRealmName(serverName, realmType, realmName);
+}

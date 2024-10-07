@@ -1,6 +1,6 @@
-[phases]
-  install = "npm install --prefix backend && npm install --prefix frontend"
-  start = "npm start --prefix backend"
+# Nixpacks configuration
+[build]
+command = "npm install"
 
-[variables]
-  PORT = 3000
+[run]
+command = "npm run start"

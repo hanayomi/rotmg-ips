@@ -1,33 +1,55 @@
-let firstCopy = false; // Track if the user has copied an IP for the first time
+let copied = false;
 
-window.onload = function () {
-  const buttons = document.querySelectorAll('.copy-btn');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', function () {
-      const ip = this.getAttribute('data-ip');
-      copyToClipboard(ip);
-
-      if (!firstCopy) {
-        showNotification();
-        firstCopy = true;
-      }
-    });
-  });
-};
-
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    console.log(`Copied: ${text}`);
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
+// Copy IP to clipboard and show a success message
+function copyToClipboard(ip) {
+  navigator.clipboard.writeText(ip).then(() => {
+    showNotification(`IP ${ip} copied to clipboard!`);
+    if (!copied) {
+      alert("IP copied to clipboard!");
+      copied = true;
+    }
   });
 }
 
-function showNotification() {
+// Show notification after copying IP
+function showNotification(message) {
   const notification = document.getElementById("notification");
+  notification.textContent = message;
   notification.classList.add("show");
   setTimeout(() => {
     notification.classList.remove("show");
-  }, 3000);
+  }, 2000);
+}
+
+// Search functionality
+function filterServers() {
+  const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+  const serverClusters = document.querySelectorAll(".server-cluster");
+
+  serverClusters.forEach(cluster => {
+    const serverName = cluster.querySelector("h4").textContent.toLowerCase();
+    const betaRealms = cluster.querySelectorAll(".beta-realm .realm-name");
+    const regularRealms = cluster.querySelectorAll(".regular-realm .realm-name");
+
+    let found = false;
+
+    // Search in server name and realms
+    if (serverName.includes(searchQuery)) {
+      found = true;
+    }
+
+    betaRealms.forEach(realm => {
+      if (realm.textContent.toLowerCase().includes(searchQuery)) {
+        found = true;
+      }
+    });
+
+    regularRealms.forEach(realm => {
+      if (realm.textContent.toLowerCase().includes(searchQuery)) {
+        found = true;
+      }
+    });
+
+    cluster.style.display = found ? "block" : "none";
+  });
 }

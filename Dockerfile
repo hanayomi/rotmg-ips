@@ -1,29 +1,20 @@
-# Use the official Node.js image
-FROM node:18-alpine
+# Use an official Node.js runtime as a parent image
+FROM node:14
 
-# Set working directory for backend
-WORKDIR /app/backend
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy backend package.json and install backend dependencies
-COPY ./backend/package*.json ./backend/
-RUN npm install --prefix ./backend
+# Copy the package.json and package-lock.json
+COPY package*.json ./
 
-# Copy all backend files
-COPY ./backend ./backend/
+# Install any needed dependencies
+RUN npm install
 
-# Set working directory for frontend
-WORKDIR /app/frontend
+# Copy the rest of the application code
+COPY . .
 
-# Copy frontend package.json and install frontend dependencies
-COPY ./frontend/package*.json ./frontend/
-RUN npm install --prefix ./frontend
-
-# Copy frontend static files to the backend public directory
-WORKDIR /app/backend
-COPY ./frontend/public ./public/
-
-# Expose port 3000 (Railway dynamically assigns a port)
+# Expose port 3000
 EXPOSE 3000
 
-# Start the backend server
-CMD ["npm", "start"]
+# Define the command to run the app
+CMD ["npm", "run", "start"]

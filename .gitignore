@@ -1,13 +1,23 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Dependency directories
+# Node.js dependencies
 node_modules/
+npm-debug.log
+yarn-error.log
 
-# Environment variables
-.env
+# Docker
+docker-compose.yaml
+Dockerfile
 
 # Build files
 dist/
+out/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Ignore configuration files
+.env

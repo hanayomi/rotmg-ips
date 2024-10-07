@@ -1,13 +1,25 @@
 version: '3.8'
-
 services:
   backend:
-    build: ./backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
     ports:
       - "3000:3000"
-    command: npm start
+    environment:
+      - NODE_ENV=development
+    command: npm run start
+
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
     ports:
       - "8080:8080"
-    command: serve -s public
+    environment:
+      - NODE_ENV=development
+    command: npm run serve
