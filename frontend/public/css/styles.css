@@ -155,37 +155,6 @@ button.copy-btn:hover {
   box-shadow: 0 0 10px #FF66B2;
 }
 
-button.nexus-btn {
-  background-color: #ffccff;
-  border: 2px solid #ff99cc;
-  color: #ff6699;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 20px;
-  margin-bottom: 15px;
-}
-
-button.nexus-btn:hover {
-  background-color: #ff99cc;
-  border-color: #ff6699;
-  color: #ffffff;
-  box-shadow: 0 0 20px #ff99cc;
-}
-
-button.beta-btn,
-button.old-realm-btn {
-  width: 45%;
-  margin: 0 2%;
-  padding: 10px;
-}
-
-.realm-name {
-  font-size: 12px;
-  color: #ccccff;
-  text-align: center;
-  margin-top: 5px;
-}
-
 /* Notification Styles */
 #notification {
   display: none;
